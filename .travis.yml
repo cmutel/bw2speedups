@@ -1,9 +1,5 @@
 language: python
 
-env:
-  global:
-    - CIBW_TEST_REQUIRES=numpy cython
-
 matrix:
   include:
     - sudo: required
@@ -12,8 +8,8 @@ matrix:
       env: PIP=pip
     - os: osx
       language: generic
-      env: PIP=pip2
+      env: PIP=pip
 
 script:
-  - $PIP install cibuildwheel==0.10.2
+  - $PIP install cibuildwheel==0.10.2 numpy cython
   - cibuildwheel --output-dir wheelhouse

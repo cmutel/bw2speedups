@@ -1,9 +1,7 @@
 build_script:
-  - pip install cibuildwheel==0.10.2
+  - pip install numpy cython cibuildwheel==0.10.2
   - cibuildwheel --output-dir wheelhouse
+
 artifacts:
   - path: "wheelhouse\\*.whl"
     name: Wheels
-environment:
-  global:
-    CIBW_TEST_REQUIRES: numpy cython
